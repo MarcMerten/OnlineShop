@@ -1,7 +1,11 @@
 package info.marcm.online_shop.cart;
 
+import lombok.Getter;
+
 import java.util.List;
 
-public interface Cart {
-    List<Item> getItems();
+public class Cart {
+    @Getter
+    private float price;
+    private List<Item> items;
 }
