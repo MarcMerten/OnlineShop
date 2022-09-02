@@ -4,9 +4,7 @@ import info.marcm.online_shop.OnlineShop;
 import info.marcm.online_shop.cart.Item;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
-import java.util.ArrayList;
 import java.util.List;
 
 class OnlineShopTest {
