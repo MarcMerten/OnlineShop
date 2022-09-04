@@ -10,7 +10,7 @@ public class ProductDataService {
     /**
      * In €
      */
-    float getPrice(String itemName) {
+    public float getPrice(String itemName) {
         return 0.f; // TODO: Implement
     }
 
