@@ -4,7 +4,9 @@ import info.marcm.online_shop.OnlineShop;
 import info.marcm.online_shop.cart.Item;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
+import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,6 +46,13 @@ class OnlineShopTest {
 
         cart = onlineShop.getCustomersItems("unknown user");
         Assertions.assertTrue(cart.isEmpty());
+
+        PrintStream infoCallback = Mockito.mock(PrintStream.class);
+        Mockito.doNothing().when(infoCallback).println();
+
+        onlineShop.finishWithPayment(customerName, OnlineShop.TESTING_PAYMENT_METHOD_NAME, infoCallback);
+
+        Mockito.verify(infoCallback, Mockito.times(1)).println(Mockito.anyString());
 
         System.out.println("Successfully tested real cart");
         System.out.println("\n\n");
